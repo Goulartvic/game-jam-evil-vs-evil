@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmyhbnmo3jhkv"]
+[gd_scene load_steps=6 format=3 uid="uid://bmyhbnmo3jhkv"]
 
 [ext_resource type="Script" path="res://data/main.gd" id="1_pra24"]
 [ext_resource type="PackedScene" uid="uid://1ujfoei6r514" path="res://data/modules/tactics/camera/camera.tscn" id="2_j6uwt"]
+[ext_resource type="Texture2D" uid="uid://c5t0y0rse2edp" path="res://assets/textures/ui/icons/icon.png" id="3_ookr0"]
 [ext_resource type="PackedScene" uid="uid://bky8ul2628kxw" path="res://data/modules/tactics/controls/controls.tscn" id="3_swndv"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_sa2p4"]
@@ -32,6 +33,11 @@ anchor_bottom = 1.0
 layout_mode = 2
 text = "Map 1"
 icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(996, 152)
+scale = Vector2(0.296875, 0.296875)
+texture = ExtResource("3_ookr0")
 
 [node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
 
