@@ -25,16 +25,31 @@ mouse_filter = 2
 [node name="MapSelector" type="CenterContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="LoadMap0" type="Button" parent="UI/MapSelector"]
 layout_mode = 2
-text = "Map 1"
+text = "Test Map
+"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="MapSelector2" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="LoadMap1" type="Button" parent="UI/MapSelector2"]
+layout_mode = 2
+text = "Alley Map"
 icon = SubResource("ImageTexture_sa2p4")
 
 [node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
+visible = false
 
 [node name="World" type="Node3D" parent="."]
 
 [connection signal="pressed" from="UI/MapSelector/LoadMap0" to="." method="_on_load_map_0_pressed"]
+[connection signal="pressed" from="UI/MapSelector2/LoadMap1" to="." method="_on_load_map_1_pressed"]

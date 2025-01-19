@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvj5julkmkq1p"]
+
+[ext_resource type="Script" path="res://data/modules/tactics/level/tactics_level.gd" id="1_0naf1"]
+[ext_resource type="Resource" uid="uid://c2mvnq00bfcw5" path="res://data/models/view/camera/tactics/camera.tres" id="2_36udv"]
+[ext_resource type="PackedScene" uid="uid://cc3au81b45m78" path="res://assets/maps/level/arena/alley_arena.tscn" id="3_mudjt"]
+[ext_resource type="Script" path="res://data/modules/tactics/level/participants/tactics_participant.gd" id="4_h1hxg"]
+[ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player.gd" id="5_k6mpy"]
+[ext_resource type="PackedScene" uid="uid://6eofg7n4asn5" path="res://data/modules/tactics/level/pawn/pawn.tscn" id="6_55ghk"]
+[ext_resource type="PackedScene" uid="uid://8x2rssxosm7i" path="res://data/modules/stats/expertise/expertise.tscn" id="7_7ug38"]
+[ext_resource type="Resource" uid="uid://14x26y1535he" path="res://data/models/world/stats/expertise/knight.tres" id="8_ql88q"]
+[ext_resource type="Resource" uid="uid://1fetqfwxu88y" path="res://data/models/world/stats/expertise/archer.tres" id="9_10oub"]
+[ext_resource type="Resource" uid="uid://dbrv0l6ndqgv3" path="res://data/models/world/stats/expertise/cleric.tres" id="10_8gl1o"]
+[ext_resource type="Resource" uid="uid://decaxywkgyj1r" path="res://data/models/world/stats/expertise/chemist.tres" id="11_y0vl0"]
+[ext_resource type="Script" path="res://data/modules/tactics/level/participants/opponent/tactics_opponent.gd" id="12_8q6i1"]
+[ext_resource type="Resource" uid="uid://c065vh6vqrtcc" path="res://data/models/world/stats/mobs/skeleton.tres" id="13_8o660"]
+[ext_resource type="Resource" uid="uid://geeqhoo6kxoi" path="res://data/models/world/stats/mobs/skeleton_mage.tres" id="14_j4qpp"]
+[ext_resource type="Resource" uid="uid://exlkcu7d77lb" path="res://data/models/world/stats/mobs/skeleton_cpn.tres" id="15_bgsor"]
+
+[node name="TacticsLevel" type="Node3D"]
+script = ExtResource("1_0naf1")
+camera = ExtResource("2_36udv")
+camera_boundary_radius = 13.0
+
+[node name="TacticsArena" parent="." instance=ExtResource("3_mudjt")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="TacticsParticipant" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("4_h1hxg")
+
+[node name="TacticsPlayer" type="Node3D" parent="TacticsParticipant"]
+unique_name_in_owner = true
+script = ExtResource("5_k6mpy")
+
+[node name="Pawn" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("6_55ghk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("8_ql88q")
+
+[node name="Pawn2" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("6_55ghk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn2" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("9_10oub")
+
+[node name="Pawn3" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("6_55ghk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn3" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("10_8gl1o")
+
+[node name="Pawn4" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("6_55ghk")]
+transform = Transform3D(0.999994, 0, 0.00338593, 0, 1, 0, -0.00338593, 0, 0.999994, 2, 0, -5)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn4" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("11_y0vl0")
+
+[node name="TacticsOpponent" type="Node3D" parent="TacticsParticipant"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+script = ExtResource("12_8q6i1")
+
+[node name="Pawn" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.39464, -0.0246843, 5.53141)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("13_8o660")
+
+[node name="Pawn2" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.51029, -0.0246843, 4.72485)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn2" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("13_8o660")
+
+[node name="Pawn3" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.45316, -0.0246843, 6.52363)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn3" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("13_8o660")
+
+[node name="Pawn4" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.51222, -0.0246843, 7.41789)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn4" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("14_j4qpp")
+
+[node name="Pawn5" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.52904, -0.0246843, 8.37854)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn5" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("14_j4qpp")
+
+[node name="Pawn6" parent="TacticsParticipant/TacticsOpponent" instance=ExtResource("6_55ghk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.4708, -0.0246843, 9.43793)
+
+[node name="Expertise" parent="TacticsParticipant/TacticsOpponent/Pawn6" instance=ExtResource("7_7ug38")]
+starting_stats = ExtResource("15_bgsor")

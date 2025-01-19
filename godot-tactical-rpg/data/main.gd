@@ -23,6 +23,12 @@ func _on_load_map_0_pressed() -> void:
 	load_level("test") # Load the test level
 #endregion
 
+#region: --- Signals ---
+## Called when the Load Map 0 button is pressed
+func _on_load_map_1_pressed() -> void:
+	load_level("alley") # Load the test level
+#endregion
+
 #region: --- Methods ---
 ## Unloads the current level instance
 func unload_level() -> void:
@@ -40,3 +46,4 @@ func load_level(level_name: String) -> void:
 	world.add_child(level_instance) # Add the new level to the World node
 	$UI/MapSelector.visible = false # Hide the map selector UI
 #endregion
+
