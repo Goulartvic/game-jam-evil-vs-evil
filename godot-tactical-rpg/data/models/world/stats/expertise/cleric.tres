@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://dbrv0l6ndqgv3"]
+
+[ext_resource type="Script" path="res://data/models/world/stats/stats_res.gd" id="1_k2p1h"]
+
+[resource]
+script = ExtResource("1_k2p1h")
+override_name = ""
+expertise = "Cleric"
+strategy = 4
+level = 1
+sprite = "res://assets/textures/actor/character/chr_pawn_mage.png"
+movement = 4
+jump = 2.0
+max_health = 35
+attack_range = 3
+attack_power = 12

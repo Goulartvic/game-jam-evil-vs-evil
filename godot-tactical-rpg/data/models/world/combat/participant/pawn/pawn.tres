@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TacticsPawnResource" load_steps=2 format=3 uid="uid://c2i6wkhmsgkea"]
+
+[ext_resource type="Script" path="res://data/models/world/combat/participant/pawn/pawn_res.gd" id="1_nbbot"]
+
+[resource]
+script = ExtResource("1_nbbot")

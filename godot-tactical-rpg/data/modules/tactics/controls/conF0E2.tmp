@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://bky8ul2628kxw"]
+
+[ext_resource type="Script" path="res://data/modules/tactics/controls/controls.gd" id="1_w0r3x"]
+[ext_resource type="Texture2D" uid="uid://crwcj7eegnn36" path="res://assets/textures/ui/labels/controls-ui-xbox.png" id="2_f67pw"]
+[ext_resource type="PackedScene" uid="uid://bnbmlef2v2yjw" path="res://data/modules/ui/input/input_capture.tscn" id="3_f1qn4"]
+[ext_resource type="Script" path="res://data/modules/ui/input/input_capture.gd" id="4_d41kv"]
+[ext_resource type="Script" path="res://data/modules/ui/hints/input_hints.gd" id="5_hgdl1"]
+[ext_resource type="Resource" uid="uid://c2mvnq00bfcw5" path="res://data/models/view/camera/tactics/camera.tres" id="5_xo7di"]
+
+[node name="TacticsControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_w0r3x")
+t_cam = ExtResource("5_xo7di")
+
+[node name="MouseClickCapture" parent="." instance=ExtResource("3_f1qn4")]
+script = ExtResource("4_d41kv")
+
+[node name="Hints" type="Container" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.472
+anchor_bottom = 0.457
+offset_right = 0.255981
+offset_bottom = -0.136017
+script = ExtResource("5_hgdl1")
+
+[node name="ControllerHints" type="TextureRect" parent="Hints"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_f67pw")
+stretch_mode = 5
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="HBox"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Actions" type="VBoxContainer" parent="HBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Move" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Move"
+
+[node name="Attack" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Attack"
+
+[node name="Wait" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Wait"
+
+[node name="Debug_next_turn" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Debug: End Turn"
+
+[node name="Cancel" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Cancel"

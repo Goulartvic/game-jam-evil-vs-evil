@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmyhbnmo3jhkv"]
+
+[ext_resource type="Script" path="res://data/main.gd" id="1_pra24"]
+[ext_resource type="PackedScene" uid="uid://1ujfoei6r514" path="res://data/modules/tactics/camera/camera.tscn" id="2_j6uwt"]
+[ext_resource type="PackedScene" uid="uid://bky8ul2628kxw" path="res://data/modules/tactics/controls/controls.tscn" id="3_swndv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_sa2p4"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_pra24")
+
+[node name="Camera" type="Node3D" parent="."]
+
+[node name="TacticsCamera" parent="Camera" instance=ExtResource("2_j6uwt")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MapSelector" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LoadMap0" type="Button" parent="UI/MapSelector"]
+layout_mode = 2
+text = "Map 1"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
+
+[node name="World" type="Node3D" parent="."]
+
+[connection signal="pressed" from="UI/MapSelector/LoadMap0" to="." method="_on_load_map_0_pressed"]

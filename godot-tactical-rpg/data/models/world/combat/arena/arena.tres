@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TacticsArenaResource" load_steps=2 format=3 uid="uid://bkmsfqmun0dro"]
+
+[ext_resource type="Script" path="res://data/models/world/combat/arena/arena_res.gd" id="1_k5x2i"]
+
+[resource]
+script = ExtResource("1_k5x2i")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TacticsCameraResource" load_steps=2 format=3 uid="uid://c2mvnq00bfcw5"]
+
+[ext_resource type="Script" path="res://data/models/view/camera/tactics/t_cam_res.gd" id="1_o41fk"]
+
+[resource]
+script = ExtResource("1_o41fk")
+move_speed = 10
+rotation_speed = 10
+smoothing = 0.1
+zoom_speed = 10.0
+zoom_smoothness = 0.65
+zoom_duration = 0.5
+min_zoom = 10.0
+max_zoom = 65.0
+boundary_radius = 15.0
+border_pan_px_threshold = 1.0
+mouse_pan_speed = 0.5
+joy_pan_speed = 0.1
+quad_snap_duration = 0.2
+x_rot = -30
+y_rot = -45
+z_rot = 0

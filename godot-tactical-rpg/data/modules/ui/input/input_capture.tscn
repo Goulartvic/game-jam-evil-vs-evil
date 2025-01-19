@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnbmlef2v2yjw"]
+
+[sub_resource type="GDScript" id="GDScript_yv7xp"]
+script/source = "class_name MouseClickCapture
+extends Node3D
+## 
+
+#region: --- Methods ---
+## Calculates where the mouse pointer actually is on the game canvas
+## by casting a ray (from the camera through the mouse pointer)
+## until it collides with an object, that it returns.
+func project_mouse_position(collision_mask: int, is_joystick: bool) -> Object:
+	var _ray_length: int = 1_000_000
+	var _camera: Camera3D = get_viewport().get_camera_3d()
+	var _mouse_pointer_origin: Vector2 = get_viewport().get_mouse_position() if not is_joystick else get_viewport().size / 2
+
+	var from: Vector3 = _camera.project_ray_origin(_mouse_pointer_origin)
+	var to: Vector3 = from + _camera.project_ray_normal(_mouse_pointer_origin) * _ray_length
+
+	var ray_query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(from, to, collision_mask, [])
+	return get_world_3d().direct_space_state.intersect_ray(ray_query).get(\"collider\")
+#endregion
+"
+
+[node name="InputCapture" type="Node3D"]
+script = SubResource("GDScript_yv7xp")

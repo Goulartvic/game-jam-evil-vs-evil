@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TacticsParticipantResource" load_steps=2 format=3 uid="uid://rx5powb1y0bt"]
+
+[ext_resource type="Script" path="res://data/models/world/combat/participant/particpt_res.gd" id="1_dceh0"]
+
+[resource]
+script = ExtResource("1_dceh0")

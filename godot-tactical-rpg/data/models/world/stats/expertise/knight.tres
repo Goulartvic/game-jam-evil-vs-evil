@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://14x26y1535he"]
+
+[ext_resource type="Script" path="res://data/models/world/stats/stats_res.gd" id="1_k2p1h"]
+
+[resource]
+script = ExtResource("1_k2p1h")
+override_name = "Oliver"
+expertise = "Knight"
+strategy = 0
+level = 1
+sprite = "res://assets/textures/actor/character/chr_pawn_knight.png"
+mp = 3
+jump = 1.0
+max_health = 50
+armor = 0
+attack_range = 1
+attack_power = 20
+crit_rate = 5
+crit_dmg = 30
+def = 1
+stab = 1
+resi = 1

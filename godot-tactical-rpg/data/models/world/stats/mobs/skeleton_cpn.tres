@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://exlkcu7d77lb"]
+
+[ext_resource type="Script" path="res://data/models/world/stats/stats_res.gd" id="1_lwyqq"]
+
+[resource]
+script = ExtResource("1_lwyqq")
+override_name = ""
+expertise = ""
+strategy = 0
+level = 1
+sprite = "res://assets/textures/actor/mob/chr_pawn_skeleton_cpt.png"
+movement = 3
+jump = 1.0
+max_health = 20
+attack_range = 1
+attack_power = 20

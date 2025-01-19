@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TacticsControlResource" load_steps=2 format=3 uid="uid://w222wq0bsj30"]
+
+[ext_resource type="Script" path="res://data/models/view/control/tactics/t_ctrl_res.gd" id="1_oeap1"]
+
+[resource]
+script = ExtResource("1_oeap1")
+move_speed = 0
+rot_speed = 0
+x_rot = 0
+y_rot = 0
+z_rot = 0
