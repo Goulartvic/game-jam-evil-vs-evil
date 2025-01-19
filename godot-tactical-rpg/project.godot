@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot Tactical RPG"
+config/name="Evil vs Evil Jam"
 config/description="A project by @ramaureirac and @mbusson"
 config/version="4.3"
 run/main_scene="res://assets/scene/main.tscn"
