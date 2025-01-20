@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/tactics_participant.gd" id="5_breuy"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player.gd" id="7_3m485"]
 [ext_resource type="PackedScene" uid="uid://6eofg7n4asn5" path="res://data/modules/tactics/level/pawn/pawn.tscn" id="8_08tl5"]
+[ext_resource type="Resource" uid="uid://cdb7d1tdhv3do" path="res://data/models/world/stats/expertise/freddy.tres" id="8_jpk1t"]
 [ext_resource type="PackedScene" uid="uid://8x2rssxosm7i" path="res://data/modules/stats/expertise/expertise.tscn" id="9_3uf1v"]
-[ext_resource type="Resource" uid="uid://14x26y1535he" path="res://data/models/world/stats/expertise/knight.tres" id="10_modns"]
 [ext_resource type="Resource" uid="uid://1fetqfwxu88y" path="res://data/models/world/stats/expertise/archer.tres" id="11_4v8eo"]
 [ext_resource type="Resource" uid="uid://dbrv0l6ndqgv3" path="res://data/models/world/stats/expertise/cleric.tres" id="12_f4qdh"]
 [ext_resource type="Resource" uid="uid://decaxywkgyj1r" path="res://data/models/world/stats/expertise/chemist.tres" id="13_y5obl"]
@@ -35,7 +35,7 @@ script = ExtResource("7_3m485")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46078, 2.51051, -5.5579)
 
 [node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn" instance=ExtResource("9_3uf1v")]
-starting_stats = ExtResource("10_modns")
+starting_stats = ExtResource("8_jpk1t")
 
 [node name="Pawn2" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("8_08tl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498559, 2.51051, -7.41643)
