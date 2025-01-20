@@ -21,7 +21,13 @@ func _ready() -> void:
 ## Called when the Load Map 0 button is pressed
 func _on_load_map_0_pressed() -> void:
 	load_level("test") # Load the test level
+## Called when the Load Map 0 button is pressed
+func _on_load_map_1_pressed() -> void:
+	load_level("test") # Load the test level
+func _on_load_settings_pressed() -> void:
+	load_screen("settings") # Load the test level
 #endregion
+
 
 #region: --- Methods ---
 ## Unloads the current level instance
@@ -36,6 +42,13 @@ func unload_level() -> void:
 func load_level(level_name: String) -> void:
 	unload_level() # Unload the current level
 	var level_path: String = "res://assets/maps/level/%s_level.tscn" % level_name # Construct the level path
+	level_instance = load(level_path).instantiate() # Load and instantiate the new level
+	world.add_child(level_instance) # Add the new level to the World node
+	$UI/MapSelector.visible = false # Hide the map selector UI
+	
+func load_screen(level_name: String) -> void:
+	unload_level() # Unload the current level
+	var level_path: String = "res://assets/maps/scene/%s.tscn" % level_name # Construct the level path
 	level_instance = load(level_path).instantiate() # Load and instantiate the new level
 	world.add_child(level_instance) # Add the new level to the World node
 	$UI/MapSelector.visible = false # Hide the map selector UI
