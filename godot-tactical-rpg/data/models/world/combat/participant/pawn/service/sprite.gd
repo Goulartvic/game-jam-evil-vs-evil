@@ -18,6 +18,16 @@ var curr_frame: int = 0
 ## @param stats: The Stats resource containing pawn data
 ## @param expertise: The pawn's expertise (class or type)
 func setup(stats: Stats, expertise: String) -> void:
+	var sprite_path = stats.sprite
+	print("sprite path " + sprite_path)
+	var loaded_texture = load(sprite_path)
+	
+	if loaded_texture:
+		print_rich("[color=green]Sprite carregado com sucesso:[/color] ", sprite_path)
+		texture = loaded_texture
+	else:
+		push_error("Fail to load sprite: " + sprite_path)
+	
 	var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 	if playback is AnimationNodeStateMachinePlayback:
 		animator = playback
@@ -29,7 +39,6 @@ func setup(stats: Stats, expertise: String) -> void:
 	animation_tree.active = true
 	texture = load(stats.sprite) as Texture2D
 	character_ui_name_label.text = stats.override_name if stats.override_name else expertise
-
 
 ## Starts the appropriate animation based on the pawn's movement and state
 ##

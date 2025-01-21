@@ -17,7 +17,6 @@ var serv: TacticsPawnService
 ## Reference to the TacticsPawnSprite node, handling visual representation
 @onready var character: TacticsPawnSprite = $Character
 
-
 ## Initializes the TacticsPawn node
 func _ready() -> void:
 	res = TacticsPawnResource.new()
@@ -26,6 +25,11 @@ func _ready() -> void:
 	controls.set_actions_menu_visibility(false, self)
 	show_pawn_stats(false)
 
+func configure_pawn(stats_resource: StatsResource) -> void:
+	stats.init(stats_resource)
+	stats.sprite = stats_resource.sprite
+	stats.expertise = stats_resource.expertise
+	character.setup(stats, stats.expertise)
 
 ## Processes pawn logic every physics frame
 ##
