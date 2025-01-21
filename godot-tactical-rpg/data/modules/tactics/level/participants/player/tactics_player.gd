@@ -15,6 +15,15 @@ func _ready() -> void:
 	super._ready()
 	# Initialize the player service with necessary resources
 	player_serv = TacticsPlayerService.new(res, camera, controls, arena)
+	get_children()[0].configure_pawn(
+		load("res://data/models/world/stats/expertise/archer.tres")
+	)
+	get_children()[1].configure_pawn(
+		load("res://data/models/world/stats/expertise/chemist.tres")
+	)
+	get_children()[2].configure_pawn(
+		load("res://data/models/world/stats/expertise/chemist.tres")
+	)
 
 
 ## Processes player-related physics updates
