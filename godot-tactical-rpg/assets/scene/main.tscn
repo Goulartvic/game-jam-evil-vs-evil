@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmyhbnmo3jhkv"]
+[gd_scene load_steps=9 format=3 uid="uid://bmyhbnmo3jhkv"]
 
 [ext_resource type="Script" path="res://data/main.gd" id="1_pra24"]
 [ext_resource type="PackedScene" uid="uid://1ujfoei6r514" path="res://data/modules/tactics/camera/camera.tscn" id="2_j6uwt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bky8ul2628kxw" path="res://data/modules/tactics/controls/controls.tscn" id="3_swndv"]
 [ext_resource type="FontFile" uid="uid://bd7bywtryqv6l" path="res://assets/fonts/Storm Gust.ttf" id="4_m1x58"]
 [ext_resource type="FontFile" uid="uid://bdd36f00wxh1g" path="res://assets/fonts/Coolvetica Rg.otf" id="5_p6uu4"]
+[ext_resource type="AudioStream" uid="uid://cfutusbyle3i4" path="res://assets/sounds/music/bgmusic.mp3" id="7_7aupl"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_sa2p4"]
 
@@ -25,20 +26,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI"]
-position = Vector2(586.117, 327.25)
+[node name="MapSelector" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/MapSelector"]
+position = Vector2(576, 322)
 scale = Vector2(1.88162, 1.88162)
 texture = ExtResource("3_53dks")
 region_rect = Rect2(0, 0, 1, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/MapSelector"]
 layout_mode = 2
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -352.0
-offset_top = 122.0
-offset_right = 316.0
-offset_bottom = 237.0
+offset_left = -356.0
+offset_top = 95.0
+offset_right = 312.0
+offset_bottom = 210.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -51,23 +64,12 @@ text = "[center]Game Logo"
 fit_content = true
 drag_and_drop_selection_enabled = false
 
-[node name="MapSelector" type="Control" parent="UI"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -96.0
-offset_bottom = 295.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="LoadMap0" type="Button" parent="UI/MapSelector"]
 layout_mode = 2
-offset_left = 365.0
-offset_top = 26.0
-offset_right = 765.0
-offset_bottom = 101.0
+offset_left = 361.0
+offset_top = 227.0
+offset_right = 761.0
+offset_bottom = 302.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
 text = "Test Map"
@@ -75,30 +77,95 @@ icon = SubResource("ImageTexture_sa2p4")
 
 [node name="LoadMap1" type="Button" parent="UI/MapSelector"]
 layout_mode = 2
-offset_left = 365.0
-offset_top = 126.0
-offset_right = 765.0
-offset_bottom = 201.0
+offset_left = 361.0
+offset_top = 327.0
+offset_right = 761.0
+offset_bottom = 402.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
 text = "Alley Map"
 icon = SubResource("ImageTexture_sa2p4")
 
 [node name="LoadSettings" type="Button" parent="UI/MapSelector"]
-offset_left = 364.0
-offset_top = 231.0
-offset_right = 764.0
-offset_bottom = 306.0
+layout_mode = 0
+offset_left = 360.0
+offset_top = 432.0
+offset_right = 760.0
+offset_bottom = 507.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Settings" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/Settings"]
+position = Vector2(576, 322)
+scale = Vector2(1.88162, 1.88162)
+texture = ExtResource("3_53dks")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 95.0
+offset_right = 312.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_m1x58")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Settings"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="Back" type="Button" parent="UI/Settings"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 432.0
+offset_right = 760.0
+offset_bottom = 507.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="MusicSlider" type="HSlider" parent="UI/Settings"]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 365.0
+offset_right = 845.0
+offset_bottom = 381.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
 visible = false
 
 [node name="World" type="Node3D" parent="."]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7aupl")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="UI/MapSelector/LoadMap0" to="." method="_on_load_map_0_pressed"]
 [connection signal="pressed" from="UI/MapSelector/LoadMap1" to="." method="_on_load_map_1_pressed"]
 [connection signal="pressed" from="UI/MapSelector/LoadSettings" to="." method="_on_load_settings_pressed"]
+[connection signal="pressed" from="UI/Settings/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="UI/Settings/MusicSlider" to="." method="_on_musicvolume_slider_value_changed"]

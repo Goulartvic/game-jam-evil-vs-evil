@@ -4,6 +4,9 @@ extends Node
 #region: --- Props ---
 ## The current instance of the TacticsLevel
 var level_instance: TacticsLevel
+var master_volume = AudioServer.get_bus_index("Master")
+var music_volume = AudioServer.get_bus_index("Music")
+var sfx_volume = AudioServer.get_bus_index("SFX")
 
 ## Reference to the World node
 @onready var world: Node3D = $World
@@ -15,6 +18,7 @@ var level_instance: TacticsLevel
 ## Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	demo_map.grab_focus() # Set focus on the demo map button
+	$UI/Settings/MusicSlider.value = db_to_linear(music_volume)
 #endregion
 
 #region: --- Signals ---
@@ -25,7 +29,7 @@ func _on_load_map_0_pressed() -> void:
 func _on_load_map_1_pressed() -> void:
 	load_level("test") # Load the test level
 func _on_load_settings_pressed() -> void:
-	load_screen("settings") # Load the test level
+	swap_settings() # Load the test level
 #endregion
 
 
@@ -45,11 +49,23 @@ func load_level(level_name: String) -> void:
 	level_instance = load(level_path).instantiate() # Load and instantiate the new level
 	world.add_child(level_instance) # Add the new level to the World node
 	$UI/MapSelector.visible = false # Hide the map selector UI
+	$UI/Settings.visible = false
 	
-func load_screen(level_name: String) -> void:
-	unload_level() # Unload the current level
-	var level_path: String = "res://assets/maps/scene/%s.tscn" % level_name # Construct the level path
-	level_instance = load(level_path).instantiate() # Load and instantiate the new level
-	world.add_child(level_instance) # Add the new level to the World node
+func swap_settings() -> void:
 	$UI/MapSelector.visible = false # Hide the map selector UI
+	$UI/Settings.visible = true
+
+func _on_back_pressed() -> void:
+	$UI/MapSelector.visible = true # Hide the map selector UI
+	$UI/Settings.visible = false
+
+func _on_mastervolume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(master_volume, linear_to_db(value))
+
+func _on_musicvolume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(music_volume, linear_to_db(value))
+
+func _on_sfxvolume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfx_volume, linear_to_db(value))
+
 #endregion
