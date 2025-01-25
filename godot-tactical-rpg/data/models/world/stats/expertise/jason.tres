@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://blabyj52a22br"]
+
+[ext_resource type="Script" path="res://data/models/world/stats/stats_res.gd" id="1_j7mq2"]
+
+[resource]
+script = ExtResource("1_j7mq2")
+override_name = "Jason"
+expertise = "Jason"
+strategy = 2
+level = 1
+sprite = "res://assets/textures/actor/character/char_pawn_jason.png"
+movement = 3
+jump = null
+max_health = 50
+attack_range = 1
+attack_power = 5
