@@ -27,8 +27,8 @@ func _ready() -> void:
 	# Set up the service with this node as context
 	serv.setup(self)
 	# Connect the skip_turn signal to the skip_turn method
-	res.connect("called_skip_turn", skip_turn)
-
+	res.connect("called_skip_turn_player1", skip_turn_player1)
+	res.connect("called_skip_turn_player2", skip_turn_player2)
 
 ## Performs the participant's action
 ##
@@ -69,7 +69,8 @@ func can_act(parent: Node3D) -> bool:
 func reset_turn(parent: Node3D) -> void:
 	serv.reset_turn(parent)
 
+func skip_turn_player1() -> void:
+	serv.skip_turn_player1(player1)
 
-## Skips the participant's turn
-func skip_turn() -> void:
-	serv.skip_turn(player1)
+func skip_turn_player2() -> void:
+	serv.skip_turn_player2(player2)

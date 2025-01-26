@@ -94,5 +94,8 @@ func reset_turn(parent: Node3D) -> void:
 ## Skips the participant's turn
 ##
 ## @param player: The TacticsPlayer node
-func skip_turn(player) -> void:
-	turn_service.skip_turn(player)
+func skip_turn_player1(player: TacticsPlayer1) -> void:
+	turn_service.skip_turn_player1(player)
+
+func skip_turn_player2(player: TacticsPlayer2) -> void:
+	turn_service.skip_turn_player2(player)

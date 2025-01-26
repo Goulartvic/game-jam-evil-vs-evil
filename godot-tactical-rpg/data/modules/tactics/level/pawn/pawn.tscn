@@ -92,6 +92,7 @@ states/IDLE/position = Vector2(299, 133)
 states/JUMP/node = SubResource("10")
 states/JUMP/position = Vector2(512, 133.312)
 transitions = ["IDLE", "JUMP", SubResource("11"), "JUMP", "IDLE", SubResource("12"), "IDLE", "DAMAGE", SubResource("19"), "DAMAGE", "IDLE", SubResource("20")]
+graph_offset = Vector2(75.3595, -9.04746)
 
 [node name="Pawn" type="CharacterBody3D"]
 collision_layer = 2

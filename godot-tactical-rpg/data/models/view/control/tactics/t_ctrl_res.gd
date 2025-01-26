@@ -32,7 +32,7 @@ var actions: Dictionary = {
 	"Wait": "_player_wants_to_wait",
 	"Cancel": "_player_wants_to_cancel",
 	"Attack": "_player_wants_to_attack",
-	"Debug_next_turn": "_player_wants_to_skip_turn"
+	# "Debug_next_turn": "_player_wants_to_skip_turn"
 }
 
 

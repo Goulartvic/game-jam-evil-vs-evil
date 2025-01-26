@@ -113,8 +113,14 @@ func reset_turn(parent: Node3D) -> void:
 
 ## Skips the participant's turn
 ##
-## @param player: The TacticsPlayer node
-func skip_turn(player) -> void:
+## @param player: The TacticsPlayer1 node
+func skip_turn_player1(player: TacticsPlayer1) -> void:
+	for pawn: TacticsPawn in player.get_children():
+		pawn.end_pawn_turn()
+	res.stage = res.STAGE_SELECT_PAWN
+
+## @param player: The TacticsPlayer2 node
+func skip_turn_player2(player: TacticsPlayer2) -> void:
 	for pawn: TacticsPawn in player.get_children():
 		pawn.end_pawn_turn()
 	res.stage = res.STAGE_SELECT_PAWN
