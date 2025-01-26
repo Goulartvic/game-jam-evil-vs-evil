@@ -20,7 +20,7 @@ func _ready() -> void:
 #region: --- Signals ---
 ## Called when the Load Map 0 button is pressed
 func _on_load_map_0_pressed() -> void:
-	load_level("test") # Load the test level
+	load_level("alley") # Load the test level
 #endregion
 
 #region: --- Methods ---
