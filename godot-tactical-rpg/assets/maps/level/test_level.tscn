@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6eofg7n4asn5" path="res://data/modules/tactics/level/pawn/pawn.tscn" id="8_08tl5"]
 [ext_resource type="Resource" uid="uid://deke6kw6n0x1l" path="res://data/models/world/stats/expertise/jason.tres" id="8_txlmn"]
 [ext_resource type="PackedScene" uid="uid://8x2rssxosm7i" path="res://data/modules/stats/expertise/expertise.tscn" id="9_3uf1v"]
-[ext_resource type="Resource" uid="uid://1fetqfwxu88y" path="res://data/models/world/stats/expertise/archer.tres" id="11_4v8eo"]
+[ext_resource type="Resource" uid="uid://lif0kp2y382l" path="res://data/models/world/stats/expertise/gremillin.tres" id="9_id1sp"]
 [ext_resource type="Resource" uid="uid://dbrv0l6ndqgv3" path="res://data/models/world/stats/expertise/cleric.tres" id="12_f4qdh"]
 [ext_resource type="Resource" uid="uid://decaxywkgyj1r" path="res://data/models/world/stats/expertise/chemist.tres" id="13_y5obl"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/opponent/tactics_opponent.gd" id="14_t1tcx"]
@@ -41,7 +41,7 @@ starting_stats = ExtResource("8_txlmn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498559, 2.51051, -7.41643)
 
 [node name="Expertise" parent="TacticsParticipant/TacticsPlayer/Pawn2" instance=ExtResource("9_3uf1v")]
-starting_stats = ExtResource("11_4v8eo")
+starting_stats = ExtResource("9_id1sp")
 
 [node name="Pawn3" parent="TacticsParticipant/TacticsPlayer" instance=ExtResource("8_08tl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44726, 2.51051, -6.34305)

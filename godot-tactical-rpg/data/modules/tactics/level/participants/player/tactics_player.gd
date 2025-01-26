@@ -19,7 +19,7 @@ func _ready() -> void:
 		load("res://data/models/world/stats/expertise/jason.tres")
 	)
 	get_children()[1].configure_pawn(
-		load("res://data/models/world/stats/expertise/jason.tres")
+		load("res://data/models/world/stats/expertise/gremillin.tres")
 	)
 	#get_children()[2].configure_pawn(
 		#load("res://data/models/world/stats/expertise/chemist.tres")
