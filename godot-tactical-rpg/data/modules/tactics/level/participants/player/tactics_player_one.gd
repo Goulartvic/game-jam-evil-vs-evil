@@ -16,10 +16,10 @@ func _ready() -> void:
 	# Initialize the player service with necessary resources
 	player_serv = TacticsPlayerService.new(res, camera, controls, arena)
 	get_children()[0].configure_pawn(
-		load("res://data/models/world/stats/expertise/knight.tres")
+		load("res://data/models/world/stats/expertise/gremillin.tres")
 	)
 	get_children()[1].configure_pawn(
-		load("res://data/models/world/stats/expertise/chemist.tres")
+		load("res://data/models/world/stats/expertise/jason.tres")
 	)
 
 
