@@ -24,7 +24,7 @@ func _init(_participant: TacticsParticipantResource, _arena: TacticsArenaResourc
 
 
 ## Handles the selection of a pawn.
-func select_pawn(player: TacticsPlayer, ctrl: TacticsControls) -> void:
+func select_pawn_player1(player: TacticsPlayer1, ctrl: TacticsControls) -> void:
 	arena.reset_all_tile_markers()
 	if ctrl.curr_pawn:
 		controls.set_actions_menu_visibility(false, participant.curr_pawn)
@@ -43,6 +43,25 @@ func select_pawn(player: TacticsPlayer, ctrl: TacticsControls) -> void:
 			controls.set_actions_menu_visibility(true, participant.curr_pawn)
 			participant.stage = 1
 
+## Handles the selection of a pawn.
+func select_pawn_player2(player: TacticsPlayer2, ctrl: TacticsControls) -> void:
+	arena.reset_all_tile_markers()
+	if ctrl.curr_pawn:
+		controls.set_actions_menu_visibility(false, participant.curr_pawn)
+		ctrl.curr_pawn.show_pawn_stats(false)
+	
+	ctrl.curr_pawn = _select_hovered_pawn(ctrl)
+	if not ctrl.curr_pawn:
+		return
+	else:
+		ctrl.curr_pawn.show_pawn_stats(true)
+	
+	if Input.is_action_just_pressed("ui_accept") and ctrl.curr_pawn.can_act():
+		if ctrl.curr_pawn in player.get_children():
+			t_cam.target = ctrl.curr_pawn
+			participant.curr_pawn = ctrl.curr_pawn
+			controls.set_actions_menu_visibility(true, participant.curr_pawn)
+			participant.stage = 1
 
 ## Selects the pawn currently hovered by the mouse.
 func _select_hovered_pawn(ctrl: TacticsControls) -> PhysicsBody3D:

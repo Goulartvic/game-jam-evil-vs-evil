@@ -4,8 +4,11 @@ extends Resource
 ## 
 ## Dependency of: [TacticsParticipant]
 
-## Signal emitted when a turn is skipped
-signal called_skip_turn
+## Signal emitted when a turn is skipped by player1
+signal called_skip_turn_player1
+
+## Signal emitted when a turn is skipped by player2
+signal called_skip_turn_player2
 
 #region Stage Selection
 ## Constant for the pawn selection stage
@@ -44,6 +47,10 @@ var display_opponent_stats: bool = false
 var turn_just_started: bool = true
 
 
-## Emits the skip_turn signal
-func skip_turn() -> void:
-	called_skip_turn.emit()
+## Emits the skip_turn signal from player1
+func skip_turn_player1() -> void:
+	called_skip_turn_player1.emit()
+
+## Emits the skip_turn signal from player1
+func skip_turn_player2() -> void:
+	called_skip_turn_player2.emit()
