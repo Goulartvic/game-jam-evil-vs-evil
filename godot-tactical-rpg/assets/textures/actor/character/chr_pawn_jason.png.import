@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cedllep3q83g7"
-path="res://.godot/imported/chr_pawn_jason-01.png-9813c6257cc38f49f1300b578d5a19a4.ctex"
+uid="uid://c1w3fnucy8it5"
+path="res://.godot/imported/chr_pawn_jason.png-659a6b6280dce1ef16e6bd1657d592ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/actor/character/chr_pawn_jason-01.png"
-dest_files=["res://.godot/imported/chr_pawn_jason-01.png-9813c6257cc38f49f1300b578d5a19a4.ctex"]
+source_file="res://assets/textures/actor/character/chr_pawn_jason.png"
+dest_files=["res://.godot/imported/chr_pawn_jason.png-659a6b6280dce1ef16e6bd1657d592ec.ctex"]
 
 [params]
 
