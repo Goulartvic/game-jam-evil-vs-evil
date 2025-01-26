@@ -7,11 +7,13 @@ signal called_set_actions_menu_visibility
 ## Signal emitted when the camera needs to be moved.
 signal called_move_camera
 ## Signal emitted when camera rotation inputs are received.
-signal called_camera_rotation
+signal called_camera_rotation 
 ## Signal emitted when a pawn needs to be selected.
 signal called_select_pawn
 ## Signal emitted when a pawn needs to be selected for attack.
 signal called_select_pawn_to_attack
+## Signal emitted when a pawn needs to be selected for specattack.
+signal called_select_pawn_to_special_attack
 ## Signal emitted when a new location needs to be selected.
 signal called_select_new_location
 ## Signal emitted when the cursor shape needs to be set to "move".
@@ -30,6 +32,7 @@ var actions: Dictionary = {
 	"Wait": "_player_wants_to_wait",
 	"Cancel": "_player_wants_to_cancel",
 	"Attack": "_player_wants_to_attack",
+	"Special_Attack": "_player_wants_to_special_attack",
 	"Debug_next_turn": "_player_wants_to_skip_turn"
 }
 
@@ -57,6 +60,10 @@ func select_pawn(player: TacticsPlayer) -> void:
 ## Selects a pawn to attack.
 func select_pawn_to_attack() -> void:
 	called_select_pawn_to_attack.emit()
+
+## Selects a pawn to special attack.
+func select_pawn_to_special_attack() -> void:
+	called_select_pawn_to_special_attack.emit()
 
 
 ## Selects a new location.

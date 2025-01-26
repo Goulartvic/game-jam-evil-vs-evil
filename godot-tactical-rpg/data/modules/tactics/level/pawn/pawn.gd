@@ -105,6 +105,8 @@ func end_pawn_turn() -> void:
 func attack_target_pawn(target_pawn: TacticsPawn, delta: float) -> bool:
 	return serv.attack_target_pawn(self, target_pawn, delta)
 
+func special_attack_target_pawn(target_pawn: TacticsPawn, delta: float) -> bool:
+	return serv.special_attack_target_pawn(self, target_pawn, delta)
 
 ## Moves the pawn along its designated path
 ##

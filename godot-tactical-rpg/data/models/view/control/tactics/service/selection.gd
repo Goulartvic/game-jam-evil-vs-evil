@@ -85,6 +85,20 @@ func select_pawn_to_attack(ctrl: TacticsControls) -> void:
 		t_cam.target = participant.attackable_pawn
 		participant.stage = 7
 
+## Handles the selection of a pawn to special attack.
+func select_pawn_to_special_attack(ctrl: TacticsControls) -> void:
+	controls.set_actions_menu_visibility(true, participant.curr_pawn)
+	if participant.attackable_pawn:
+		controls.set_actions_menu_visibility(false, participant.attackable_pawn)
+		participant.attackable_pawn.show_pawn_stats(false)
+	var tile: TacticsTile = _select_hovered_tile(ctrl)
+	participant.attackable_pawn = tile.get_tile_occupier() if tile else null
+	if participant.attackable_pawn:
+		controls.set_actions_menu_visibility(true, participant.attackable_pawn)
+		participant.attackable_pawn.show_pawn_stats(true)
+	if Input.is_action_just_pressed("ui_accept") and tile and tile.attackable:
+		t_cam.target = participant.attackable_pawn
+		participant.stage = 7
 
 ## Handles the player's intention to move.
 func player_wants_to_move() -> void:

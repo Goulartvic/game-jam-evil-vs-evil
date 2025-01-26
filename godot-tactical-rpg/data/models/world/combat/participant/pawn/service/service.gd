@@ -49,3 +49,12 @@ func process(pawn: TacticsPawn, delta: float) -> void:
 ## @return: Whether the attack was successful
 func attack_target_pawn(pawn: TacticsPawn, target_pawn: TacticsPawn, delta: float) -> bool:
 	return combat.attack_target_pawn(pawn, target_pawn, delta)
+
+## Initiates an special attack on a target pawn
+##
+## @param pawn: The attacking TacticsPawn
+## @param target_pawn: The TacticsPawn being attacked
+## @param delta: Time elapsed since the last frame
+## @return: Whether the attack was successful
+func special_attack_target_pawn(pawn: TacticsPawn, target_pawn: TacticsPawn, delta: float) -> bool:
+	return combat.special_attack_target_pawn(pawn, target_pawn, delta)

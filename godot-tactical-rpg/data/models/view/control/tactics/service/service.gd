@@ -47,6 +47,8 @@ func setup(ctrl: TacticsControls) -> void:
 		controls.connect("called_set_cursor_shape_to_arrow", ctrl.set_cursor_shape_to_arrow)
 		controls.connect("called_select_pawn", ctrl.select_pawn)
 		controls.connect("called_select_pawn_to_attack", ctrl.select_pawn_to_attack)
+		@warning_ignore("unsafe_call_argument")
+		controls.connect("called_select_pawn_to_special_attack", ctrl.select_pawn_to_special_attack)
 		controls.connect("called_select_new_location", ctrl.select_new_location)
 	if not t_cam:
 		push_error("TacticsCamera needs a CameraResource (T Cam) from /data/models/view/camera/tactics/")
@@ -94,6 +96,10 @@ func select_new_location(ctrl: TacticsControls) -> void:
 func select_pawn_to_attack(ctrl: TacticsControls) -> void:
 	pawn_selection_service.select_pawn_to_attack(ctrl)
 
+## Delegates pawn attack selection to the pawn selection service.
+func select_pawn_to_special_attack(ctrl: TacticsControls) -> void:
+	pawn_selection_service.select_pawn_to_special_attack(ctrl)
+
 
 ## Handles player's move action.
 func player_wants_to_move() -> void:
@@ -118,3 +124,7 @@ func player_wants_to_skip_turn() -> void:
 ## Handles player's attack action.
 func player_wants_to_attack() -> void:
 	pawn_selection_service.player_wants_to_attack()
+
+## Handles player's special attack action.
+func player_wants_to_special_attack() -> void:
+	pawn_selection_service.player_wants_to_special_attack()

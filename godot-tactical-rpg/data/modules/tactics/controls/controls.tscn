@@ -98,3 +98,10 @@ layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "Cancel"
+
+[node name="Special attack" type="Button" parent="HBox/Actions"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Special Attack"
