@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player_one.gd" id="5_f08pm"]
 [ext_resource type="PackedScene" uid="uid://6eofg7n4asn5" path="res://data/modules/tactics/level/pawn/pawn.tscn" id="6_oxxx2"]
 [ext_resource type="PackedScene" uid="uid://8x2rssxosm7i" path="res://data/modules/stats/expertise/expertise.tscn" id="7_350yc"]
-[ext_resource type="Resource" path="res://data/models/world/stats/expertise/freddy.tres" id="8_fsd3p"]
+[ext_resource type="Resource" uid="uid://cdb7d1tdhv3do" path="res://data/models/world/stats/expertise/freddy.tres" id="8_fsd3p"]
 [ext_resource type="Resource" uid="uid://1fetqfwxu88y" path="res://data/models/world/stats/expertise/archer.tres" id="9_cipws"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player_two.gd" id="10_vpkot"]
 
