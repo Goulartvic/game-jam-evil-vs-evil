@@ -86,6 +86,7 @@ mouse_default_cursor_shape = 2
 text = "Wait"
 
 [node name="Debug_next_turn" type="Button" parent="HBox/Actions"]
+visible = false
 custom_minimum_size = Vector2(196, 64)
 layout_mode = 2
 mouse_filter = 1

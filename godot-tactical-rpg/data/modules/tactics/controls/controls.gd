@@ -91,9 +91,12 @@ func get_3d_canvas_mouse_position(collision_mask: int) -> Object:
 
 
 ## Selects a pawn for the player
-func select_pawn(player: TacticsPlayer) -> void:
-	serv.select_pawn(player, self)
+func select_pawn_player1(player: TacticsPlayer1) -> void:
+	serv.select_pawn_player1(player, self)
 
+## Selects a pawn for the player
+func select_pawn_player2(player: TacticsPlayer2) -> void:
+	serv.select_pawn_player2(player, self)
 
 ## Initiates the process of selecting a new location for the pawn
 func select_new_location() -> void:

@@ -47,16 +47,16 @@ func setup(_participant: TacticsParticipant) -> void:
 ## @param is_player: Whether the acting participant is the player
 ## @param parent: The parent node of the participant
 ## @param participant: The TacticsParticipant node
-func act(delta: float, is_player: bool, parent: Node3D, participant: TacticsParticipant) -> void:
-	DebugLog.debug_nospam("participant_turn", is_player)
+func act(delta: float, is_player1: bool, parent: Node3D, participant: TacticsParticipant) -> void:
+	DebugLog.debug_nospam("participant_turn", is_player1)
 	DebugLog.debug_nospam("turn_stage", res.stage)
 	
-	if is_player:
-		var player: TacticsPlayer = parent as TacticsPlayer
-		turn_service.handle_player_turn(delta, player, participant)
+	if is_player1:
+		var player1: TacticsPlayer1 = parent as TacticsPlayer1
+		turn_service.handle_player1_turn(delta, player1, participant)
 	else:
-		var opponent: TacticsOpponent = parent as TacticsOpponent
-		turn_service.handle_opponent_turn(delta, opponent, participant)
+		var player2: TacticsPlayer2 = parent as TacticsPlayer2
+		turn_service.handle_player2_turn(delta, player2, participant)
 
 
 ## Configures the service with camera and control resources
@@ -94,5 +94,8 @@ func reset_turn(parent: Node3D) -> void:
 ## Skips the participant's turn
 ##
 ## @param player: The TacticsPlayer node
-func skip_turn(player: TacticsPlayer) -> void:
-	turn_service.skip_turn(player)
+func skip_turn_player1(player: TacticsPlayer1) -> void:
+	turn_service.skip_turn_player1(player)
+
+func skip_turn_player2(player: TacticsPlayer2) -> void:
+	turn_service.skip_turn_player2(player)
