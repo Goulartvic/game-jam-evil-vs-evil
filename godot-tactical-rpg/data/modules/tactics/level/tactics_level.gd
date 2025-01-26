@@ -14,8 +14,10 @@ extends Node3D
 @export var ui_control: TacticsControlsResource = load("res://data/models/view/control/tactics/control.tres")
 ## Reference to the TacticsParticipant node
 var participant: TacticsParticipant
-## Reference to the TacticsPlayer node
-var player: TacticsPlayer = null
+## Reference to the TacticsPlayer1 node
+var player1: TacticsPlayer1 = null
+## Reference to the TacticsPlayer1 node
+var player2: TacticsPlayer2 = null
 ## Reference to the TacticsOpponent node
 var opponent: TacticsOpponent
 ## Reference to the TacticsArena node
@@ -33,7 +35,8 @@ func _ready() -> void:
 	
 	# Initialize node references
 	participant = $TacticsParticipant
-	player = $TacticsParticipant/TacticsPlayer
+	player1 = $TacticsParticipant/TacticsPlayer1
+	player2 = $TacticsParticipant/TacticsPlayer2
 	opponent = $TacticsParticipant/TacticsOpponent
 	arena = $TacticsArena
 	
@@ -53,28 +56,28 @@ func _physics_process(delta: float) -> void:
 #region: --- Methods ---
 ## Checks requirements to begin the first turn.[br]Used by [TacticsPlayer], [TacticsOpponent]
 func _init_turn() -> void:
-	if participant.is_configured(player) and participant.is_configured(opponent):
+	if participant.is_configured(player1) and participant.is_configured(player2):
 		turn_stage = 1 # Move to turn handling stage if both player and opponent are configured
 
 ## Turn state management.[br]Used by [TacticsPlayer], [TacticsOpponent]
 func _handle_turn(delta: float) -> void:
-	DebugLog.debug_nospam("player_can_act", participant.can_act(player))
+	DebugLog.debug_nospam("player1_can_act", participant.can_act(player1))
 	
-	if participant.can_act(player):
-		if not participant.is_configured(player):
-			participant.configure(camera, ui_control) # Configure player if not already done
-		participant.act(delta, true, player) # Player's turn to act
+	if participant.can_act(player1):
+		if not participant.is_configured(player1):
+			participant.configure(camera, ui_control) # Configure player1 if not already done
+		participant.act(delta, true, player1) # Player's turn to act
 		
-	elif participant.can_act(opponent):
-		if not participant.is_configured(opponent):
+	elif participant.can_act(player2):
+		if not participant.is_configured(player2):
 			participant.configure(camera, ui_control) # Configure opponent if not already done
-		participant.act(delta, false, opponent) # Opponent's turn to act
+		participant.act(delta, false, player2) # Player2's turn to act
 		
 	else:
 		if DebugLog.debug_enabled:
 			print_rich("[color=green]0Oo◦° O-----------------------------------O °◦oO0[/color]")
 			print_rich("[color=green]0Oo◦°[/color][color=red] >}=----->> [/color][color=yellow][ Turn reset! ][/color][color=red] <<-----={< [/color][color=green]°◦oO0[/color]")
 			print_rich("[color=green]0Oo◦° O-----------------------------------O °◦oO0[/color]")
-		player.reset_turn(player) # Reset player's turn
-		opponent.reset_turn(opponent) # Reset opponent's turn
+		player1.reset_turn(player1) # Reset player1's turn
+		player2.reset_turn(player2) # Reset player2's turn
 #endregion

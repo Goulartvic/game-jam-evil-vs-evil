@@ -15,11 +15,10 @@ extends Node3D
 var serv: TacticsParticipantService
 ## Reference to the TacticsArena node
 @onready var arena: TacticsArena = %TacticsArena
-## Reference to the TacticsPlayer node
-@onready var player: TacticsPlayer = %TacticsPlayer
-## Reference to the TacticsOpponent node
-@onready var opponent: TacticsOpponent = %TacticsOpponent
-
+## Reference to the TacticsPlayer1 node
+@onready var player1: TacticsPlayer1 = %TacticsPlayer1
+## Reference to the TacticsPlayer2 node
+@onready var player2: TacticsPlayer2 = %TacticsPlayer2
 
 ## Initializes the TacticsParticipant node
 func _ready() -> void:
@@ -73,4 +72,4 @@ func reset_turn(parent: Node3D) -> void:
 
 ## Skips the participant's turn
 func skip_turn() -> void:
-	serv.skip_turn(player)
+	serv.skip_turn(player1)

@@ -45,7 +45,8 @@ func setup(ctrl: TacticsControls) -> void:
 		controls.connect("called_camera_rotation", ctrl.camera_rotation_inputs)
 		controls.connect("called_set_cursor_shape_to_move", ctrl.set_cursor_shape_to_move)
 		controls.connect("called_set_cursor_shape_to_arrow", ctrl.set_cursor_shape_to_arrow)
-		controls.connect("called_select_pawn", ctrl.select_pawn)
+		controls.connect("called_select_pawn_player1", ctrl.select_pawn_player1)
+		controls.connect("called_select_pawn_player2", ctrl.select_pawn_player2)
 		controls.connect("called_select_pawn_to_attack", ctrl.select_pawn_to_attack)
 		controls.connect("called_select_new_location", ctrl.select_new_location)
 	if not t_cam:
@@ -81,9 +82,12 @@ func set_actions_menu_visibility(v: bool, p: TacticsPawn, ctrl: TacticsControls)
 
 
 ## Delegates pawn selection to the pawn selection service.
-func select_pawn(player: TacticsPlayer, ctrl: TacticsControls) -> void:
-	pawn_selection_service.select_pawn(player, ctrl)
+func select_pawn_player1(player: TacticsPlayer1, ctrl: TacticsControls) -> void:
+	pawn_selection_service.select_pawn_player1(player, ctrl)
 
+## Delegates pawn selection to the pawn selection service.
+func select_pawn_player2(player: TacticsPlayer2, ctrl: TacticsControls) -> void:
+	pawn_selection_service.select_pawn_player2(player, ctrl)
 
 ## Delegates new location selection to the pawn selection service.
 func select_new_location(ctrl: TacticsControls) -> void:

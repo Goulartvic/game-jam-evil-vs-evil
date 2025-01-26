@@ -46,7 +46,11 @@ func toggle_enemy_stats(opponent_node: Node) -> void:
 ##
 ## @param player: The TacticsPlayer node to check
 ## @return: Whether all pawns are configured
-func is_pawn_configured(player: TacticsPlayer) -> bool:
+func is_pawn_configured(player) -> bool:
+	if not (player is TacticsPlayer1 or player is TacticsPlayer2):
+		push_error("Player inválido passado para is_pawn_configured")
+		return false	
+		
 	for pawn: TacticsPawn in player.get_children():
 		if pawn is TacticsPawn:
 			if not pawn.center():

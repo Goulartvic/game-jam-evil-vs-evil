@@ -28,7 +28,7 @@ func _init(_res: TacticsParticipantResource, _camera: TacticsCameraResource, _co
 ## @param delta: Time elapsed since the last frame
 ## @param player: The TacticsPlayer node
 ## @param participant: The TacticsParticipant node
-func handle_player_turn(delta: float, player: TacticsPlayer, participant: TacticsParticipant) -> void:
+func handle_player1_turn(delta: float, player: TacticsPlayer1, participant: TacticsParticipant) -> void:
 	if res.turn_just_started:
 		camera.target = player.get_children().front()
 		res.turn_just_started = false
@@ -38,7 +38,31 @@ func handle_player_turn(delta: float, player: TacticsPlayer, participant: Tactic
 	controls.set_actions_menu_visibility(res.stage in [res.STAGE_SHOW_ACTIONS, res.STAGE_SHOW_MOVEMENTS, res.STAGE_SELECT_LOCATION, res.STAGE_DISPLAY_TARGETS, res.STAGE_SELECT_ATTACK_TARGET], res.curr_pawn)
 	
 	match res.stage:
-		res.STAGE_SELECT_PAWN: controls.select_pawn(player)
+		res.STAGE_SELECT_PAWN: controls.select_pawn_player1(player)
+		res.STAGE_SHOW_ACTIONS: player.show_available_pawn_actions()
+		res.STAGE_SHOW_MOVEMENTS: player.show_available_movements()
+		res.STAGE_SELECT_LOCATION: controls.select_new_location()
+		res.STAGE_MOVE_PAWN: player.move_pawn()
+		res.STAGE_DISPLAY_TARGETS: player.display_attackable_targets()
+		res.STAGE_SELECT_ATTACK_TARGET: controls.select_pawn_to_attack()
+		res.STAGE_ATTACK: participant.serv.combat_service.attack_pawn(delta, true)
+
+## Handles the player's turn
+##
+## @param delta: Time elapsed since the last frame
+## @param player: The TacticsPlayer node
+## @param participant: The TacticsParticipant node
+func handle_player2_turn(delta: float, player: TacticsPlayer2, participant: TacticsParticipant) -> void:
+	if res.turn_just_started:
+		camera.target = player.get_children().front()
+		res.turn_just_started = false
+	
+	controls.move_camera(delta)
+	controls.camera_rotation_inputs(delta)
+	controls.set_actions_menu_visibility(res.stage in [res.STAGE_SHOW_ACTIONS, res.STAGE_SHOW_MOVEMENTS, res.STAGE_SELECT_LOCATION, res.STAGE_DISPLAY_TARGETS, res.STAGE_SELECT_ATTACK_TARGET], res.curr_pawn)
+	
+	match res.stage:
+		res.STAGE_SELECT_PAWN: controls.select_pawn_player2(player)
 		res.STAGE_SHOW_ACTIONS: player.show_available_pawn_actions()
 		res.STAGE_SHOW_MOVEMENTS: player.show_available_movements()
 		res.STAGE_SELECT_LOCATION: controls.select_new_location()
@@ -90,7 +114,7 @@ func reset_turn(parent: Node3D) -> void:
 ## Skips the participant's turn
 ##
 ## @param player: The TacticsPlayer node
-func skip_turn(player: TacticsPlayer) -> void:
+func skip_turn(player) -> void:
 	for pawn: TacticsPawn in player.get_children():
 		pawn.end_pawn_turn()
 	res.stage = res.STAGE_SELECT_PAWN
