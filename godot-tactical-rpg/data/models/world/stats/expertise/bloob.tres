@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://vfcr3pwufnxr"]
+
+[ext_resource type="Script" path="res://data/models/world/stats/stats_res.gd" id="1_hbetn"]
+
+[resource]
+script = ExtResource("1_hbetn")
+override_name = ""
+expertise = "bloob"
+strategy = 3
+level = 1
+sprite = "res://assets/textures/actor/character/chr_pawn_bloob.png"
+movement = 5
+jump = 3.0
+max_health = 35
+attack_range = 6
+attack_power = 10
