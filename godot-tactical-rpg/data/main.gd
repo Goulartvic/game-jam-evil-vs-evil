@@ -31,9 +31,9 @@ func _ready() -> void:
 		AudioServer.set_bus_volume_db(master_volume, linear_to_db(config.get_value("audio", "master_volume")))
 		AudioServer.set_bus_volume_db(music_volume, linear_to_db(config.get_value("audio", "music_volume")))
 		AudioServer.set_bus_volume_db(sfx_volume, linear_to_db(config.get_value("audio", "sfx_volume")))
-		$UI/Settings/MasterSlider.value = db_to_linear(master_volume)
-		$UI/Settings/MusicSlider.value = db_to_linear(music_volume)
-		$UI/Settings/SfxSlider.value = db_to_linear(sfx_volume)
+		$UI/SettingsAudio/MasterSlider.value = db_to_linear(master_volume)
+		$UI/SettingsAudio/MusicSlider.value = db_to_linear(music_volume)
+		$UI/SettingsAudio/SfxSlider.value = db_to_linear(sfx_volume)
 #endregion
 
 #region: --- Signals ---
@@ -45,6 +45,8 @@ func _on_load_map_1_pressed() -> void:
 	load_level("test") # Load the test level
 func _on_load_settings_pressed() -> void:
 	swap_settings() # Load the test level
+func _on_load_settings_in_game_pressed() -> void:
+	swap_settings_in_game() # Load the test level
 #endregion
 
 
@@ -64,15 +66,58 @@ func load_level(level_name: String) -> void:
 	level_instance = load(level_path).instantiate() # Load and instantiate the new level
 	world.add_child(level_instance) # Add the new level to the World node
 	$UI/MapSelector.visible = false # Hide the map selector UI
-	$UI/Settings.visible = false
+	$UI/GameUiBtn.visible = true
 	
 func swap_settings() -> void:
+	$UI/GameUiBtn.visible = false
 	$UI/MapSelector.visible = false # Hide the map selector UI
+	$UI/MainMenu.visible = false
 	$UI/Settings.visible = true
+
+func swap_hero_selector() -> void:
+	$UI/MainMenu.visible = false # Hide the map selector UI
+	$UI/HeroSelector.visible = true
+
+func swap_credits() -> void:
+	$UI/MainMenu.visible = false # Hide the map selector UI
+	$UI/Credits.visible = true
+
+func swap_map_selector() -> void:
+	$UI/MapSelector.visible = true # Hide the map selector UI
+	$UI/HeroSelector.visible = false
+	
+func swap_audio_settings() -> void:
+	$UI/Settings.visible = false # Hide the map selector UI
+	$UI/SettingsAudio.visible = true
 
 func _on_back_pressed() -> void:
 	$UI/MapSelector.visible = true # Hide the map selector UI
 	$UI/Settings.visible = false
+
+func _on_back_pressed_to_menu() -> void:
+	$UI/MainMenu.visible = true # Hide the map selector UI
+	$UI/Settings.visible = false
+
+func _on_back_pressed_to_settings() -> void:
+	$UI/Settings.visible = true # Hide the map selector UI
+	$UI/SettingsAudio.visible = false
+	
+func swap_settings_in_game() -> void:
+	printerr("algumacoisa")
+	$UI/GameUiBtn.visible = false # Hide the map selector UI
+	$UI/SettingsInGame.visible = true
+
+func swap_audio_settings_in_game() -> void:
+	$UI/SettingsInGame.visible = false # Hide the map selector UI
+	$UI/SettingsAudioInGame.visible = true
+	
+func _on_back_pressed_to_settings_in_game() -> void:
+	$UI/SettingsAudioInGame.visible = false # Hide the map selector UI
+	$UI/SettingsInGame.visible = true
+
+func _on_back_pressed_to_game() -> void:
+	$UI/SettingsInGame.visible = false # Hide the map selector UI
+	$UI/GameUiBtn.visible = true
 
 func _on_mastervolume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_volume, linear_to_db(value))
@@ -113,6 +158,5 @@ func _on_team1_pawn2_selected(index: int) -> void:
 func _on_team1_pawn3_selected(index: int) -> void:
 	print(index)
 	#TODO add Team 1 Pawn 3
-
 
 #endregion

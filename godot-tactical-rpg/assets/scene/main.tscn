@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmyhbnmo3jhkv"]
+[gd_scene load_steps=10 format=3 uid="uid://bmyhbnmo3jhkv"]
 
 [ext_resource type="Script" path="res://data/main.gd" id="1_pra24"]
 [ext_resource type="PackedScene" uid="uid://1ujfoei6r514" path="res://data/modules/tactics/camera/camera.tscn" id="2_j6uwt"]
-[ext_resource type="Texture2D" uid="uid://dkdpxadhke1al" path="res://assets/textures/ui/BG/pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image_13898453.png" id="3_53dks"]
+[ext_resource type="Texture2D" uid="uid://db2knrenlki4w" path="res://assets/textures/ui/BG/BGnew_game.png" id="3_blksd"]
 [ext_resource type="PackedScene" uid="uid://bky8ul2628kxw" path="res://data/modules/tactics/controls/controls.tscn" id="3_swndv"]
 [ext_resource type="FontFile" uid="uid://bd7bywtryqv6l" path="res://assets/fonts/Storm Gust.ttf" id="4_m1x58"]
 [ext_resource type="FontFile" uid="uid://bdd36f00wxh1g" path="res://assets/fonts/Coolvetica Rg.otf" id="5_p6uu4"]
 [ext_resource type="AudioStream" uid="uid://cfutusbyle3i4" path="res://assets/sounds/music/bgmusic.mp3" id="7_7aupl"]
+[ext_resource type="Texture2D" uid="uid://xhtquyqtdopf" path="res://assets/textures/ui/icons/EvilVsEvilLogo.png" id="9_ou63t"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_sa2p4"]
 
@@ -16,6 +17,11 @@ script = ExtResource("1_pra24")
 [node name="Camera" type="Node3D" parent="."]
 
 [node name="TacticsCamera" parent="Camera" instance=ExtResource("2_j6uwt")]
+
+[node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
+visible = false
+
+[node name="World" type="Node3D" parent="."]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -39,37 +45,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/MapSelector"]
-position = Vector2(576, 322)
-scale = Vector2(1.88162, 1.88162)
-texture = ExtResource("3_53dks")
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
 region_rect = Rect2(0, 0, 1, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/MapSelector"]
-layout_mode = 2
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -356.0
-offset_top = 95.0
-offset_right = 312.0
-offset_bottom = 210.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/normal_font = ExtResource("4_m1x58")
-theme_override_font_sizes/normal_font_size = 100
-bbcode_enabled = true
-text = "[center]Game Logo"
-fit_content = true
-drag_and_drop_selection_enabled = false
 
 [node name="LoadMap0" type="Button" parent="UI/MapSelector"]
 layout_mode = 2
-offset_left = 361.0
-offset_top = 227.0
-offset_right = 761.0
-offset_bottom = 302.0
+offset_left = 363.0
+offset_top = 278.0
+offset_right = 763.0
+offset_bottom = 353.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
 text = "Test Map"
@@ -77,16 +63,60 @@ icon = SubResource("ImageTexture_sa2p4")
 
 [node name="LoadMap1" type="Button" parent="UI/MapSelector"]
 layout_mode = 2
+offset_left = 359.0
+offset_top = 380.0
+offset_right = 759.0
+offset_bottom = 455.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Alley Map"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="MainMenu" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/MainMenu"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="EvilVsEvilLogo" type="Sprite2D" parent="UI/MainMenu/Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454"]
+position = Vector2(-0.898346, -261.407)
+scale = Vector2(0.433175, 0.433175)
+texture = ExtResource("9_ou63t")
+
+[node name="Play" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+offset_left = 361.0
+offset_top = 227.0
+offset_right = 761.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Credits" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
 offset_left = 361.0
 offset_top = 327.0
 offset_right = 761.0
 offset_bottom = 402.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
-text = "Alley Map"
+text = "Credits"
 icon = SubResource("ImageTexture_sa2p4")
 
-[node name="LoadSettings" type="Button" parent="UI/MapSelector"]
+[node name="LoadSettings" type="Button" parent="UI/MainMenu"]
 layout_mode = 0
 offset_left = 360.0
 offset_top = 432.0
@@ -98,6 +128,7 @@ text = "Settings"
 icon = SubResource("ImageTexture_sa2p4")
 
 [node name="HeroSelector" type="Control" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -108,10 +139,10 @@ offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/HeroSelector"]
-position = Vector2(576, 322)
-scale = Vector2(1.88162, 1.88162)
-texture = ExtResource("3_53dks")
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/HeroSelector"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
 region_rect = Rect2(0, 0, 1, 1)
 
 [node name="RichTextTeam2" type="RichTextLabel" parent="UI/HeroSelector"]
@@ -193,6 +224,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team1Pawn2" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 301.0
 offset_right = 454.0
@@ -208,6 +240,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team1Pawn3" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 424.0
 offset_right = 251.0
@@ -223,6 +256,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team1Pawn4" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 424.0
 offset_right = 454.0
@@ -238,6 +272,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team2Pawn1" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 674.0
 offset_top = 301.0
 offset_right = 874.0
@@ -253,6 +288,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team2Pawn2" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 877.0
 offset_top = 301.0
 offset_right = 1077.0
@@ -268,6 +304,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team2Pawn3" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 674.0
 offset_top = 424.0
 offset_right = 874.0
@@ -283,6 +320,7 @@ popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
 [node name="Team2Pawn4" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
 offset_left = 877.0
 offset_top = 424.0
 offset_right = 1077.0
@@ -297,6 +335,21 @@ popup/item_2/id = 2
 popup/item_3/text = "Blob"
 popup/item_3/id = 3
 
+[node name="Button" type="Button" parent="UI/HeroSelector"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -31.0
+offset_right = 39.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Continue"
+
 [node name="Settings" type="Control" parent="UI"]
 visible = false
 layout_mode = 1
@@ -307,10 +360,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/Settings"]
-position = Vector2(576, 322)
-scale = Vector2(1.88162, 1.88162)
-texture = ExtResource("3_53dks")
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/Settings"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
 region_rect = Rect2(0, 0, 1, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Settings"]
@@ -334,7 +387,110 @@ text = "[center]Settings"
 fit_content = true
 drag_and_drop_selection_enabled = false
 
+[node name="Audio" type="Button" parent="UI/Settings"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 227.0
+offset_right = 761.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Audio"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Quit" type="Button" parent="UI/Settings"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 327.0
+offset_right = 761.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+icon = SubResource("ImageTexture_sa2p4")
+
 [node name="Back" type="Button" parent="UI/Settings"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 431.875
+offset_right = 769.0
+offset_bottom = 506.875
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="GameUiBtn" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.535
+offset_top = -64.58
+offset_right = -90.5349
+offset_bottom = -24.58
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SettingsInGameBtn" type="Button" parent="UI/GameUiBtn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.4651
+offset_top = -37.42
+offset_right = 70.5349
+offset_bottom = 5.58002
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="SettingsAudio" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/SettingsAudio"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/SettingsAudio"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 95.0
+offset_right = 312.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_m1x58")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Settings"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="Back" type="Button" parent="UI/SettingsAudio"]
 layout_mode = 0
 offset_left = 369.0
 offset_top = 476.0
@@ -345,7 +501,7 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 icon = SubResource("ImageTexture_sa2p4")
 
-[node name="MusicSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+[node name="MusicSliderLabel" type="RichTextLabel" parent="UI/SettingsAudio"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -366,7 +522,8 @@ text = "[center]Music"
 fit_content = true
 drag_and_drop_selection_enabled = false
 
-[node name="MusicSlider" type="HSlider" parent="UI/Settings"]
+[node name="MusicSlider" type="HSlider" parent="UI/SettingsAudio"]
+layout_mode = 0
 offset_left = 311.0
 offset_top = 343.0
 offset_right = 859.0
@@ -375,7 +532,7 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="SfxSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+[node name="SfxSliderLabel" type="RichTextLabel" parent="UI/SettingsAudio"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -397,7 +554,8 @@ fit_content = true
 drag_and_drop_selection_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="SfxSlider" type="HSlider" parent="UI/Settings"]
+[node name="SfxSlider" type="HSlider" parent="UI/SettingsAudio"]
+layout_mode = 0
 offset_left = 306.0
 offset_top = 409.0
 offset_right = 854.0
@@ -407,7 +565,7 @@ step = 0.01
 value = 0.5
 metadata/_edit_use_anchors_ = true
 
-[node name="MasterSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+[node name="MasterSliderLabel" type="RichTextLabel" parent="UI/SettingsAudio"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -428,7 +586,8 @@ text = "[center]Master"
 fit_content = true
 drag_and_drop_selection_enabled = false
 
-[node name="MasterSlider" type="HSlider" parent="UI/Settings"]
+[node name="MasterSlider" type="HSlider" parent="UI/SettingsAudio"]
+layout_mode = 0
 offset_left = 306.0
 offset_top = 260.0
 offset_right = 854.0
@@ -437,10 +596,218 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="TacticsControls" parent="." instance=ExtResource("3_swndv")]
+[node name="SettingsInGame" type="Control" parent="UI"]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="World" type="Node3D" parent="."]
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/SettingsInGame"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/SettingsInGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 95.0
+offset_right = 312.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_m1x58")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Settings"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="Audio" type="Button" parent="UI/SettingsInGame"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 227.0
+offset_right = 761.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Audio"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Quit" type="Button" parent="UI/SettingsInGame"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 327.0
+offset_right = 761.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="Back" type="Button" parent="UI/SettingsInGame"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 431.875
+offset_right = 769.0
+offset_bottom = 506.875
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="SettingsAudioInGame" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898454" type="Sprite2D" parent="UI/SettingsAudioInGame"]
+position = Vector2(565, 418)
+scale = Vector2(1.11321, 1.11321)
+texture = ExtResource("3_blksd")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/SettingsAudioInGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 95.0
+offset_right = 312.0
+offset_bottom = 210.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_m1x58")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Settings"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="Back" type="Button" parent="UI/SettingsAudioInGame"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 476.0
+offset_right = 769.0
+offset_bottom = 551.0
+theme_override_fonts/font = ExtResource("5_p6uu4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+icon = SubResource("ImageTexture_sa2p4")
+
+[node name="MusicSliderLabel" type="RichTextLabel" parent="UI/SettingsAudioInGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 301.0
+offset_right = 349.0
+offset_bottom = 342.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Music"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="MusicSlider" type="HSlider" parent="UI/SettingsAudioInGame"]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 343.0
+offset_right = 859.0
+offset_bottom = 359.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SfxSliderLabel" type="RichTextLabel" parent="UI/SettingsAudioInGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 367.0
+offset_right = 344.0
+offset_bottom = 408.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]SFX"
+fit_content = true
+drag_and_drop_selection_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="SfxSlider" type="HSlider" parent="UI/SettingsAudioInGame"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 409.0
+offset_right = 854.0
+offset_bottom = 425.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterSliderLabel" type="RichTextLabel" parent="UI/SettingsAudioInGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 218.0
+offset_right = 344.0
+offset_bottom = 259.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Master"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="MasterSlider" type="HSlider" parent="UI/SettingsAudioInGame"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 260.0
+offset_right = 854.0
+offset_bottom = 276.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7aupl")
@@ -449,7 +816,8 @@ bus = &"Music"
 
 [connection signal="pressed" from="UI/MapSelector/LoadMap0" to="." method="_on_load_map_0_pressed"]
 [connection signal="pressed" from="UI/MapSelector/LoadMap1" to="." method="_on_load_map_1_pressed"]
-[connection signal="pressed" from="UI/MapSelector/LoadSettings" to="." method="_on_load_settings_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Play" to="." method="swap_hero_selector"]
+[connection signal="pressed" from="UI/MainMenu/LoadSettings" to="." method="_on_load_settings_pressed"]
 [connection signal="item_selected" from="UI/HeroSelector/Team1Pawn1" to="." method="_on_team0_pawn0_selected"]
 [connection signal="item_selected" from="UI/HeroSelector/Team1Pawn2" to="." method="_on_team0_pawn1_selected"]
 [connection signal="item_selected" from="UI/HeroSelector/Team1Pawn3" to="." method="_on_team0_pawn2_selected"]
@@ -458,7 +826,15 @@ bus = &"Music"
 [connection signal="item_selected" from="UI/HeroSelector/Team2Pawn2" to="." method="_on_team1_pawn1_selected"]
 [connection signal="item_selected" from="UI/HeroSelector/Team2Pawn3" to="." method="_on_team1_pawn2_selected"]
 [connection signal="item_selected" from="UI/HeroSelector/Team2Pawn4" to="." method="_on_team1_pawn3_selected"]
-[connection signal="pressed" from="UI/Settings/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="UI/Settings/MusicSlider" to="." method="_on_musicvolume_slider_value_changed"]
-[connection signal="value_changed" from="UI/Settings/SfxSlider" to="." method="_on_sfxvolume_slider_value_changed"]
-[connection signal="value_changed" from="UI/Settings/MasterSlider" to="." method="_on_mastervolume_slider_value_changed"]
+[connection signal="pressed" from="UI/HeroSelector/Button" to="." method="swap_map_selector"]
+[connection signal="pressed" from="UI/Settings/Audio" to="." method="swap_audio_settings"]
+[connection signal="pressed" from="UI/Settings/Back" to="." method="_on_back_pressed_to_menu"]
+[connection signal="pressed" from="UI/GameUiBtn/SettingsInGameBtn" to="." method="_on_load_settings_in_game_pressed"]
+[connection signal="pressed" from="UI/SettingsAudio/Back" to="." method="_on_back_pressed_to_settings"]
+[connection signal="value_changed" from="UI/SettingsAudio/MusicSlider" to="." method="_on_musicvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsAudio/SfxSlider" to="." method="_on_sfxvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsAudio/MasterSlider" to="." method="_on_mastervolume_slider_value_changed"]
+[connection signal="pressed" from="UI/SettingsInGame/Audio" to="." method="swap_audio_settings_in_game"]
+[connection signal="value_changed" from="UI/SettingsAudioInGame/MusicSlider" to="." method="_on_musicvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsAudioInGame/SfxSlider" to="." method="_on_sfxvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/SettingsAudioInGame/MasterSlider" to="." method="_on_mastervolume_slider_value_changed"]
