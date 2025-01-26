@@ -20,6 +20,7 @@ config/icon="res://assets/textures/ui/icons/icon.png"
 [autoload]
 
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+ConfigFileHandler="*res://data/models/config/ConfigFileHandler.gd"
 
 [debug]
 

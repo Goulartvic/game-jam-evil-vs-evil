@@ -97,7 +97,208 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 icon = SubResource("ImageTexture_sa2p4")
 
+[node name="HeroSelector" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pngtree-classic-pixel-art-vector-illustration-with-a-mixed-black-random-pixel-image13898453" type="Sprite2D" parent="UI/HeroSelector"]
+position = Vector2(576, 322)
+scale = Vector2(1.88162, 1.88162)
+texture = ExtResource("3_53dks")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="RichTextTeam2" type="RichTextLabel" parent="UI/HeroSelector"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 182.0
+offset_top = 227.0
+offset_right = 426.0
+offset_bottom = 299.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Team 2"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextTeam1" type="RichTextLabel" parent="UI/HeroSelector"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -449.0
+offset_top = 227.0
+offset_right = -205.0
+offset_bottom = 299.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Team 1"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/HeroSelector"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.0
+offset_top = 40.0
+offset_right = 317.0
+offset_bottom = 155.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_m1x58")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Choose Your Evil"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="Team1Pawn1" type="OptionButton" parent="UI/HeroSelector"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 301.0
+offset_right = 251.0
+offset_bottom = 421.0
+selected = 0
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team1Pawn2" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 254.0
+offset_top = 301.0
+offset_right = 454.0
+offset_bottom = 421.0
+selected = 1
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team1Pawn3" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 51.0
+offset_top = 424.0
+offset_right = 251.0
+offset_bottom = 544.0
+selected = 2
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team1Pawn4" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 254.0
+offset_top = 424.0
+offset_right = 454.0
+offset_bottom = 544.0
+selected = 3
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team2Pawn1" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 674.0
+offset_top = 301.0
+offset_right = 874.0
+offset_bottom = 421.0
+selected = 0
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team2Pawn2" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 877.0
+offset_top = 301.0
+offset_right = 1077.0
+offset_bottom = 421.0
+selected = 1
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team2Pawn3" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 674.0
+offset_top = 424.0
+offset_right = 874.0
+offset_bottom = 544.0
+selected = 2
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
+[node name="Team2Pawn4" type="OptionButton" parent="UI/HeroSelector"]
+offset_left = 877.0
+offset_top = 424.0
+offset_right = 1077.0
+offset_bottom = 544.0
+selected = 3
+item_count = 4
+popup/item_0/text = "Freedy"
+popup/item_1/text = "Jason"
+popup/item_1/id = 1
+popup/item_2/text = "Gremlins"
+popup/item_2/id = 2
+popup/item_3/text = "Blob"
+popup/item_3/id = 3
+
 [node name="Settings" type="Control" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,21 +336,103 @@ drag_and_drop_selection_enabled = false
 
 [node name="Back" type="Button" parent="UI/Settings"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 432.0
-offset_right = 760.0
-offset_bottom = 507.0
+offset_left = 369.0
+offset_top = 476.0
+offset_right = 769.0
+offset_bottom = 551.0
 theme_override_fonts/font = ExtResource("5_p6uu4")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 icon = SubResource("ImageTexture_sa2p4")
 
+[node name="MusicSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 301.0
+offset_right = 349.0
+offset_bottom = 342.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Music"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
 [node name="MusicSlider" type="HSlider" parent="UI/Settings"]
-layout_mode = 0
-offset_left = 297.0
-offset_top = 365.0
-offset_right = 845.0
-offset_bottom = 381.0
+offset_left = 311.0
+offset_top = 343.0
+offset_right = 859.0
+offset_bottom = 359.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SfxSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 367.0
+offset_right = 344.0
+offset_bottom = 408.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]SFX"
+fit_content = true
+drag_and_drop_selection_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="SfxSlider" type="HSlider" parent="UI/Settings"]
+offset_left = 306.0
+offset_top = 409.0
+offset_right = 854.0
+offset_bottom = 425.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterSliderLabel" type="RichTextLabel" parent="UI/Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 218.0
+offset_right = 344.0
+offset_bottom = 259.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.87, 0.87, 0.87, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("5_p6uu4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Master"
+fit_content = true
+drag_and_drop_selection_enabled = false
+
+[node name="MasterSlider" type="HSlider" parent="UI/Settings"]
+offset_left = 306.0
+offset_top = 260.0
+offset_right = 854.0
+offset_bottom = 276.0
 max_value = 1.0
 step = 0.01
 value = 0.5
@@ -167,5 +450,15 @@ bus = &"Music"
 [connection signal="pressed" from="UI/MapSelector/LoadMap0" to="." method="_on_load_map_0_pressed"]
 [connection signal="pressed" from="UI/MapSelector/LoadMap1" to="." method="_on_load_map_1_pressed"]
 [connection signal="pressed" from="UI/MapSelector/LoadSettings" to="." method="_on_load_settings_pressed"]
+[connection signal="item_selected" from="UI/HeroSelector/Team1Pawn1" to="." method="_on_team0_pawn0_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team1Pawn2" to="." method="_on_team0_pawn1_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team1Pawn3" to="." method="_on_team0_pawn2_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team1Pawn4" to="." method="_on_team0_pawn3_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team2Pawn1" to="." method="_on_team1_pawn0_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team2Pawn2" to="." method="_on_team1_pawn1_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team2Pawn3" to="." method="_on_team1_pawn2_selected"]
+[connection signal="item_selected" from="UI/HeroSelector/Team2Pawn4" to="." method="_on_team1_pawn3_selected"]
 [connection signal="pressed" from="UI/Settings/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="UI/Settings/MusicSlider" to="." method="_on_musicvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/Settings/SfxSlider" to="." method="_on_sfxvolume_slider_value_changed"]
+[connection signal="value_changed" from="UI/Settings/MasterSlider" to="." method="_on_mastervolume_slider_value_changed"]

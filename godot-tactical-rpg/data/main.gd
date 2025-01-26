@@ -8,6 +8,9 @@ var master_volume = AudioServer.get_bus_index("Master")
 var music_volume = AudioServer.get_bus_index("Music")
 var sfx_volume = AudioServer.get_bus_index("SFX")
 
+var config = ConfigFile.new()
+const SETTINGS_FILE_PATH = "user://settings.ini"
+
 ## Reference to the World node
 @onready var world: Node3D = $World
 ## Reference to the demo map button
@@ -18,7 +21,19 @@ var sfx_volume = AudioServer.get_bus_index("SFX")
 ## Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	demo_map.grab_focus() # Set focus on the demo map button
-	$UI/Settings/MusicSlider.value = db_to_linear(music_volume)
+	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
+		config.set_value("audio", "master_volume",1.0)
+		config.set_value("audio", "music_volume",1.0)
+		config.set_value("audio", "sfx_volume",1.0)
+		config.save(SETTINGS_FILE_PATH)
+	else:
+		config.load(SETTINGS_FILE_PATH)
+		AudioServer.set_bus_volume_db(master_volume, linear_to_db(config.get_value("audio", "master_volume")))
+		AudioServer.set_bus_volume_db(music_volume, linear_to_db(config.get_value("audio", "music_volume")))
+		AudioServer.set_bus_volume_db(sfx_volume, linear_to_db(config.get_value("audio", "sfx_volume")))
+		$UI/Settings/MasterSlider.value = db_to_linear(master_volume)
+		$UI/Settings/MusicSlider.value = db_to_linear(music_volume)
+		$UI/Settings/SfxSlider.value = db_to_linear(sfx_volume)
 #endregion
 
 #region: --- Signals ---
@@ -61,11 +76,43 @@ func _on_back_pressed() -> void:
 
 func _on_mastervolume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_volume, linear_to_db(value))
+	config.set_value("audio","master_volume",linear_to_db(value))
+	config.save(SETTINGS_FILE_PATH)
 
 func _on_musicvolume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_volume, linear_to_db(value))
+	config.set_value("audio","music_volume",linear_to_db(value))
+	config.save(SETTINGS_FILE_PATH)
 
 func _on_sfxvolume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx_volume, linear_to_db(value))
+	config.set_value("audio","sfx_volume",linear_to_db(value))
+	config.save(SETTINGS_FILE_PATH)
+
+func _on_team0_pawn0_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 0 Pawn 0
+func _on_team0_pawn1_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 0 Pawn 1
+func _on_team0_pawn2_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 0 Pawn 2
+func _on_team0_pawn3_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 0 Pawn 3
+func _on_team1_pawn0_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 1 Pawn 0
+func _on_team1_pawn1_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 1 Pawn 1
+func _on_team1_pawn2_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 1 Pawn 2
+func _on_team1_pawn3_selected(index: int) -> void:
+	print(index)
+	#TODO add Team 1 Pawn 3
+
 
 #endregion
