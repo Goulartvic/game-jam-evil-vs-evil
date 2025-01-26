@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://data/modules/tactics/level/tactics_level.gd" id="1_mlenb"]
 [ext_resource type="Resource" uid="uid://c2mvnq00bfcw5" path="res://data/models/view/camera/tactics/camera.tres" id="2_gd7sd"]
-[ext_resource type="PackedScene" uid="uid://6af3iymssgfr" path="res://assets/maps/level/arena/first_arena.tscn" id="3_d5ndv"]
+[ext_resource type="PackedScene" path="res://assets/maps/level/arena/first_arena.tscn" id="3_d5ndv"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/tactics_participant.gd" id="4_xd041"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player_one.gd" id="5_67cq4"]
 [ext_resource type="PackedScene" uid="uid://6eofg7n4asn5" path="res://data/modules/tactics/level/pawn/pawn.tscn" id="6_f2vbh"]
 [ext_resource type="PackedScene" uid="uid://8x2rssxosm7i" path="res://data/modules/stats/expertise/expertise.tscn" id="7_ci7pn"]
 [ext_resource type="Resource" path="res://data/models/world/stats/expertise/freddy.tres" id="9_6dufj"]
 [ext_resource type="Script" path="res://data/modules/tactics/level/participants/player/tactics_player_two.gd" id="10_1ycm4"]
+[ext_resource type="Resource" uid="uid://cdb7d1tdhv3do" path="res://data/models/world/stats/expertise/freddy.tres" id="9_6dufj"]
 [ext_resource type="Resource" uid="uid://1fetqfwxu88y" path="res://data/models/world/stats/expertise/archer.tres" id="10_prwkc"]
 
 [node name="TacticsLevel" type="Node3D"]
